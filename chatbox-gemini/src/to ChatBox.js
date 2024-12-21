@@ -1,4 +1,4 @@
-import { useState } from "react";
+,import { useState } from "react";
 import ChatMessage from "./ChatMessage";
 import { fetchGeminiResponse } from "../utils/api";
 
@@ -32,7 +32,7 @@ export default function ChatBox() {
           onChange={(e) => setModel(e.target.value)}
           className="p-2 border rounded-md flex-1"
         >
-          <option value="gpt-4">Gemini Pro Flash/option>
+          <option value="gpt-4">Gemini Pro Flash9/option>
           <option value="gpt-3.5">Gemini pro</option>
           {/* Add more models as needed */}
         </select>
