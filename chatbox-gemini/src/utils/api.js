@@ -11,7 +11,7 @@ const API_ENDPOINT = "https://api.openai.com/v1/chat/completions"; // Replace wi
  */
 export async function fetchGeminiResponse(prompt, model, filters) {
   const headers = {
-    Authorization: `Bearer YOUR_GEMINI_API_KEY`, // Replace with your actual API key
+    Authorization: `Bearer AIzaSyA8QL8-PNiQNCWvpC_Wdm0Jg-C2uf4wBRs`, // Replace with your actual API key
     "Content-Type": "application/json",
   };
 
