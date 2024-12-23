@@ -1,4 +1,3 @@
-// components/ErrorBoundary.jsx
 import React from 'react';
 
 class ErrorBoundary extends React.Component {
@@ -14,7 +13,12 @@ class ErrorBoundary extends React.Component {
   componentDidCatch(error, errorInfo) {
     console.error('Uncaught error:', error, errorInfo);
     // Optionally log to an external service here, like Sentry
+    // Example: Sentry.captureException(error);
   }
+
+  handleRetry = () => {
+    this.setState({ hasError: false, error: null });
+  };
 
   render() {
     if (this.state.hasError) {
@@ -22,6 +26,9 @@ class ErrorBoundary extends React.Component {
         <div className="p-4 text-red-600">
           <h2>Something went wrong.</h2>
           <p>{this.state.error?.message}</p>
+          <button onClick={this.handleRetry} className="bg-blue-500 text-white p-2 rounded-md">
+            Retry
+          </button>
         </div>
       );
     }
