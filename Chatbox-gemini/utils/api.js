@@ -1,32 +1,6 @@
 // chatbox-gemini/src/utils/api.js
 
 import axios from "axios";
-
-// Correct endpoint for Gemini API
-const API_ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent";
-
-/**
- * Fetches a response from the Gemini API based on the provided prompt.
- * @param {string} prompt - The user input.
- * @param {string} model - The model to use (e.g., "gemini-pro" or "gemini-pro-vision").
- * @param {boolean} filters - Whether to apply safety filters.
- * @returns {Promise<string>} - The response string from the Gemini API.
- */
-export async function fetchGeminiResponse(prompt, model = "gemini-pro", filters = true) {
-  try {
-    const headers = {
-      "Content-Type": "application/json",
-    };
-
-    const payload = {
-      // This payload structure follows the Google PaLM API style for generative language
-      contents: [
-        {
-          parts: [
-            {
-              text: prompt,
-            },
-import axios from "axios";
 import { config } from './config';
 
 const API_BASE = `${config.API_ENDPOINT}`;
@@ -96,11 +70,5 @@ export async function fetchGeminiResponse(prompt, model = config.DEFAULT_MODEL, 
       }
     }
     throw error;
-  }
-}      return "No valid response from server.";
-    }
-  } catch (error) {
-    console.error("Error fetching Gemini response:", error);
-    return "Error: Unable to fetch response at this time.";
   }
 }
