@@ -1,4 +1,4 @@
-q{
+{
   "rewrites": [
     {
       "source": "/api/:path*",
