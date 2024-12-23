@@ -1,13 +1,12 @@
-export default function ChatMessage({ message, role }) {
+import React from 'react';
+
+export default function ChatMessage({ message, role, isError }) {
+  const bgColor = role === 'user' ? 'bg-blue-100' : 'bg-gray-100';
+  const textColor = isError ? 'text-red-500' : 'text-gray-800';
+
   return (
-    <div
-      className={`mb-4 p-4 rounded-lg shadow-md ${
-        role === "user"
-          ? "bg-blue-100 text-blue-900"
-          : "bg-gray-100 text-gray-800"
-      }`}
-    >
-      <p>{message}</p>
+    <div className={`${bgColor} p-3 rounded-lg mb-2 ${role === 'user' ? 'ml-auto' : 'mr-auto'} max-w-[80%]`}>
+      <p className={`${textColor} break-words`}>{message}</p>
     </div>
   );
 }

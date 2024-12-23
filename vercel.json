@@ -1,0 +1,6 @@
+{
+  "buildCommand": "cd Chatbox-gemini && npm install && npm run build",
+  "outputDirectory": "Chatbox-gemini/.next",
+  "installCommand": "cd Chatbox-gemini && npm install",
+  "rootDirectory": "Chatbox-gemini"
+}
