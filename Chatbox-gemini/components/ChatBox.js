@@ -1,6 +1,5 @@
-// chatbox-gemini/src/components/ChatBox.js
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import ChatMessage from "./ChatMessage";
 import { fetchGeminiResponse } from "../utils/api";
 
@@ -8,13 +7,15 @@ export default function ChatBox() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [filters, setFilters] = useState(true);
-  const [model, setModel] = useState("gemini-pro"); // Updated default model
+  const [model, setModel] = useState("gemini-pro");
+  const [loading, setLoading] = useState(false); // New loading state
 
   const sendMessage = async () => {
     if (!input.trim()) return;
 
     const newMessages = [...messages, { role: "user", message: input }];
     setMessages(newMessages);
+    setLoading(true); // Set loading to true
 
     try {
       const response = await fetchGeminiResponse(input, model, filters);
@@ -24,6 +25,8 @@ export default function ChatBox() {
         ...newMessages,
         { role: "assistant", message: "Sorry, there was an error processing your request." },
       ]);
+    } finally {
+      setLoading(false); // Reset loading state
     }
     setInput("");
   };
@@ -66,9 +69,14 @@ export default function ChatBox() {
           onClick={sendMessage}
           className="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-md transition-colors"
         >
-          Send
+          {loading ? "Sending..." : "Send"} {/* Loading state in button */}
         </button>
       </div>
     </div>
   );
 }
+
+ChatBox.propTypes = {
+  message: PropTypes.string.isRequired,
+  role: PropTypes.string.isRequired,
+};
