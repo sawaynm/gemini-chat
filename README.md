@@ -1,35 +1,26 @@
-https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/cli/cli
-
-
-
-
-https://vercel.com/import/project?template=https://github.com/cli/cli
-
-
 # Gemini Chat
 
-A modern chat interface powered by Google's Gemini AI models, built with React and Next.js.
+A modern chat interface powered by Google's Gemini AI models, built with Next.js and React.
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsawaynm%2Fgemini-chat)
 
 ## Features
 
-- 💬 Real-time chat interface
-- 🤖 Integration with Google's Gemini AI models
-- 🎨 Clean and responsive UI using Tailwind CSS
-- ⚡ Fast performance with Next.js
-- 🛡️ Safety filters toggle
-- 📱 Mobile-friendly design
+- Real-time chat interface
+- Integration with Google's Gemini AI
+- Clean and responsive UI with Tailwind CSS
+- Safety filter toggle
+- Mobile-friendly design
 
 ## Getting Started
 
 ### Prerequisites
-
-- Node.js 16.x or later
-- npm or yarn
-- Google API key for Gemini
+- Node.js (v16+ recommended)  
+- npm or yarn  
+- A valid Google API key for Gemini  
 
 ### Installation
-
-1. Clone the repository:
 ```bash
 git clone https://github.com/sawaynm/gemini-chat.git
 cd gemini-chat
+npm install
