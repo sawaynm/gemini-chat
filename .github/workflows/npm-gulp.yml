@@ -1,4 +1,4 @@
-name: NodeJS with Gulp
+name: Node.js CI
 
 on:
   push:
@@ -21,12 +21,13 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
+        cache: 'npm'
 
     - name: Install dependencies
-      run: npm install
+      run: npm ci
 
-    - name: Build with Gulp
-      run: gulp
+    - name: Build
+      run: npm run build --if-present
 
     - name: Setup environment variables
       run: echo "REACT_APP_GEMINI_API_KEY=${{ secrets.REACT_APP_GEMINI_API_KEY }}" >> $GITHUB_ENV
