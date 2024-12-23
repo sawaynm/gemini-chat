@@ -22,7 +22,16 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Build
-      run: |
-        npm install
-        gulp
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build with Gulp
+      run: gulp
+
+    - name: Setup environment variables
+      run: echo "REACT_APP_GEMINI_API_KEY=${{ secrets.REACT_APP_GEMINI_API_KEY }}" >> $GITHUB_ENV
+      env:
+        REACT_APP_GEMINI_API_KEY: ${{ secrets.REACT_APP_GEMINI_API_KEY }}
+
+    - name: Run tests
+      run: npm test
